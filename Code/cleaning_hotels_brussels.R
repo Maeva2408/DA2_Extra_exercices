@@ -75,7 +75,7 @@ b_data <- filter( b_data , !duplicated(
                                                stars, ratings, price, year, month,
                                                weekend, holiday ) ) ) )
 
-# Finally hotels Vienna
+# Finally hotels Brussels
 b_data <- rename( b_data , city = s_city )
 hotel_brussels <- filter( b_data , city == "Brussels" )
 

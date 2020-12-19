@@ -1,0 +1,130 @@
+---
+title: "Hotels in Brussels Analysis"
+author: "Maeva Braeckevelt"
+output:
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r, include=F, message=FALSE, echo=FALSE, eval=TRUE}
+# Packages to use
+library(tidyverse)
+require(scales)
+library(lspline)
+library(estimatr)
+library(texreg)
+library(ggthemes)
+library(tidyverse)
+library(geosphere)
+library(moments)
+library(dplyr)
+library(knitr)
+library(pander)
+library(jtools)
+library(huxtable)
+
+# First, I will import ly clean data from github
+my_url <- "https://raw.githubusercontent.com/Maeva2408/DA2_Extra_exercices/main/data/clean/hotel_Brussels.csv"
+brussels <- read_csv( my_url )
+```
+
+# Introduction
+
+This analysis aimed at analyzing the pattern of association between the price of the hotels in Brussels and the distance from the center. The data used was gathered in a csv files : The hotelbookingdata.csv. It was download from a comparison website and it was anonymized and slightly altered to ensure confidentiality.The main variables that I used were: the price in dollars (y) and the distance to the city center in miles (x). My sample is the price of the hotels in Brussels whithin 5 miles, in the weekday of November 2017 of a maximum of 400 dollars.
+
+# Histogram and summary statitics
+```{r, echo=FALSE, out.width = "70%",fig.align='center',results='asis', message=FALSE}
+# I Will filter out the hotels with distance that have more that 5 miles and price more than 400$
+hotels_brussels <- filter( brussels , 
+                          year == 2017 & month == 11 & weekend == 0,
+                          accommodation_type == "Hotel" , 
+                          stars >= 3 & stars <= 4, distance <= 5,
+                          price <= 400)
+
+hotels_brussels %>% 
+  keep(is.numeric) %>%
+  ggplot(aes(x= distance))+
+  geom_histogram(fill= "orangered4", col= "salmon")+
+  theme_bw()+
+  scale_fill_wsj()+
+  labs(x = "Distance from the city center (miles))",y = "count of hotels", title = 'Distribution of distance from the city center')
+
+df_hotels_brussels <- summarise(hotels_brussels,
+                             variable = "price",
+                             mean = mean(x = price),
+                             median = median(x = price),
+                             min= min(x = price),
+                             max = max(x = price),
+                             sd = sd(x = price),
+                             skew = skewness(x = price))
+
+
+kable(df_hotels_brussels, caption = 'Summary statistic of the Price')
+```
+The minimun price for a night is 56 dollars and the maximum 364 dollars. The mean is 169,31 dollars.
+I observed that the distribution of the distance is skewed with a right tail and some extreme values.
+
+# Non-parametric regression
+## Bin scatter with four bins & Lowess regression
+```{r, echo=FALSE, fig.show = "hold", out.width = "50%", message=FALSE}
+hotels_brussels %>% ggplot(aes(x = distance, y = price)) +
+  geom_point( size = 3)+
+  stat_summary_bin(fun ='mean', bins = 4, color='salmon', size= 7, geom='point')+
+  labs(x='Distance (miles)',y='price ($)')
+
+## Lowess regression
+# Scatter plot
+scatter <- ggplot( hotels_brussels , aes(x = distance, y = price )) +
+  geom_point(fill= "orangered4", col= "salmon"  )+
+  theme_bw()+
+  scale_fill_wsj()+
+  labs(x='Distance (miles)',y='Price ($)')
+
+# Approximate with a lo(w)ess non-parametric line
+
+scatter + geom_smooth(method=loess,se=F,formula='y~x',color='black')
+
+```
+
+I observed that there is a negative slope in general. Further away from the city center, cheaper are the hotels. However, I obersved that around 1,5 miles, the price gets higher. This spike was not present where we were comparing hotels in Vienna. One explanation could be that around 1,5 miles from the center, there is a expensive neighborhood. With these two non-parametric regressions I can not answer quantitative answers, I can only evaluate by the graphs, a difference on average of 20$ between close and far hotels from the city center. So to have more quantitative data I will do a linear regression.
+
+### Simple Linear regression (A5)
+```{r, echo=FALSE, out.width = "70%",fig.align='center',results='asis', message=FALSE}
+## Simple Linear regression
+reg1 <- lm_robust( price ~ distance , data = hotels_brussels , se_type = "HC2" )
+## Vizualition
+ggplot( data = hotels_brussels, aes( x = distance, y = price ) ) + 
+  geom_point( color='salmon') +
+  theme_bw()+
+  geom_smooth( method = lm , color = 'orangered4' )+
+  labs(x = "Distance in miles",y = "Price in $")
+
+```
+This graph represents the simple linear regression between the price of hotels in Brussels and the distance to the city center.
+
+**Formula :  Price = 180,34 - 7,78 * distance **
+
+**Alpha** : 180,34 is the average price of the hotel when the distance is equal to 0. 
+
+**Beta** : the hotels that are 1 miles further away from the city center are, on average, 7,78$ cheaper
+
+However my R square is 3%, so only 3% of variation of the price is captured in this regression.
+I observed as well that the line doesn't fit very well the graphs. There is some very high residuals. 
+
+```{r, message = FALSE, echo=FALSE,warning=FALSE, size=1, fig.height=4, out.width = "50%"}
+df_brussels_stat <- export_summs(reg1,
+                              model.names = c( "Linear"),
+                              caption= "model summary statistics")
+as_hux(df_brussels_stat)
+```
+
+# Conclusion
+
+I can see that the linear regression give a more quantitative answer but we could already capture the pattern with the non-parametric regression.
+Compare to Vienna (slope of 14), the price of hotels in Brussels don't get as much cheaper when you go further away from the city center.
+
+
+
+
