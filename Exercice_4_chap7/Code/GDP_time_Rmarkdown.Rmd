@@ -1,0 +1,118 @@
+---
+title: "Analysis between the GDPPC (in PPP) and the days required to start a new business"
+author: "Maeva Braeckevelt"
+output:
+  pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+This analysis aimed at analyzing the pattern of association between the GDPPC (in PPP) and the days required to start a new business. The data used was gathered on  the World Bank'sites. The main variables that I used were: the GDDPPC of countries in thousand of dollars US (y) and the number of days required to start a new business (x). I decided to also compare level-level to log-log transformation. I will do a non-parametric regression and then a linear regression
+
+```{r, include=F, message=FALSE, echo=FALSE, eval=TRUE}
+# Packages to use
+library(tidyverse)
+require(scales)
+library(lspline)
+library(estimatr)
+library(texreg)
+library(ggthemes)
+library(tidyverse)
+library(geosphere)
+library(moments)
+library(dplyr)
+library(knitr)
+library(pander)
+library(jtools)
+library(huxtable)
+
+# First, I will import ly clean data from github
+my_url <- "https://raw.githubusercontent.com/Maeva2408/DA2_Extra_exercices/main/Exercice_4_chap7/Data/Clean/GDPPC_TIME.csv"
+df <- read_csv( my_url )
+```
+
+```{r, include=F, message=FALSE, echo=FALSE, eval=TRUE}
+# New scale, GDPPC in thousands
+df <- df %>% transmute( iso2c = iso2c,
+                                    country = country,
+                                    GDPPC   =  GDPPC/1000,
+                                    year = year,
+                                    days   = days)
+```
+# Non-parametric regression : level-level and log-log
+```{r, echo=FALSE, fig.show = "hold", out.width = "50%", message=FALSE}
+scatter <- ggplot(df , aes(x = days, y = GDPPC )) +
+  geom_point(fill= "orangered4", col= "salmon"  )+
+  geom_smooth(method="loess",color = 'orangered4' )+
+  theme_bw()+
+  scale_fill_wsj()+
+  labs(x='Number of days',y='GDPPC in thousand ($)')
+
+scatter
+
+## I know this chapter is before we learn the log transformation but so I will not
+## take it and compare it because I think it could be interesting, So I will take log-log
+
+
+scatter_ln <- ggplot( df , aes(x = days , y = GDPPC)) +
+  geom_point(color = 'salmon') +
+  geom_smooth(method="loess",color = 'orangered4' )+
+  theme_bw()+
+  labs(x = "Number of days (ln scale)",y = "GDPPC in thousand ($) (ln scale)") +
+  scale_y_continuous( trans = log_trans(),  breaks = c(1,2,5,10,20,50,100,200,500,1000,10000) )+
+  scale_x_continuous( trans = log_trans(),  breaks = c(1,2,5,10,20,50,100,200,500,1000,10000) )
+scatter_ln
+```
+I observe that the slope is negatif. But it is not easy to see and not very precise. I can already say that there few chances that there is a higher association between GDPPC and the days required to start a business. The trend of the regression is a bit easier to see in the log-log models. I will do a regression to have some quantitative analysis.
+
+# Linear regression level-level and log-log
+
+## level-level
+**Formula : GDPPC= 26,32 -0,26 * days**
+
+**Alpha** : 26,32 is the average of GDppc (in thousand $) of a country when the days to start a business is equal to 0. 
+
+**Beta** : One additional day is associated with a  0,26 (thousand $) smaller GDPPC
+
+## log-log
+**Formula : GDPPC= 26,32 -0,26 * days**
+
+**Alpha** : 3,42 is the average of the ln_GDppc (in thousand $) of a country when the days to start a business is equal to 1 (ln(0)=1. 
+
+**Beta** :  1 % higher change in days, is associated with a  0,36% smaller GDPPC, on average.
+
+The R squared adjusted are both very small. 5% pour level-level and 7% for log-log. So the log-log model fit a bit better but the regression still doesn't captures very well the regression. 
+To conlude, the business-friendliness of a country affect the income it generateS but there is probably some other factors that have a higher association with the GDPPC of a country.
+```{r, echo=FALSE, fig.show = "hold", out.width = "50%", message=FALSE}
+## Simple Linear regression
+df<- df %>% mutate( ln_gdppc = log( GDPPC), ln_days = log(days))
+reg1 <- lm_robust( GDPPC ~ days , data = df , se_type = "HC2" )
+reg2 <- lm_robust( ln_gdppc ~ ln_days , data = df , se_type = "HC2" )
+## Vizualition
+
+## level-level
+ggplot( data = df, aes( x = days, y = GDPPC ) ) + 
+  geom_point( color='salmon') +
+  theme_bw()+
+  geom_smooth( method = lm , color = 'orangered4' )+
+  labs(x = "Number of days",y = "GDPPC in thousand ($)") 
+## log-log
+ggplot( data = df, aes( x = ln_days, y = ln_gdppc ) ) + 
+  geom_point( color='salmon') +
+  theme_bw()+
+  geom_smooth( method = lm , color = 'orangered4' )+
+  labs(x = "Number of days (ln scale)",y = "GDPPC in thousand ($) (ln scale")
+
+
+```
+```{r, message = FALSE, echo=FALSE,warning=FALSE, size=1, fig.height=4, out.width = "10%"}
+df_stat <- export_summs(reg1, reg2,
+                               model.names = c( "Linear", "Linear log-log"),
+                               caption= "model summary statistics")
+as_hux(df_stat)
+
+```
+

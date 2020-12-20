@@ -63,12 +63,6 @@ ggplot( data = Vienna, aes( x = ratings, y = price ) ) +
   geom_smooth( method = lm , color = 'orangered4' )+
   labs(x = "number if stars",y = "price in $") 
 
-df_vienna_stat <- export_summs(reg1,
-                               model.names = c( "Linear"),
-                               caption= "model summary statistics")
-as_hux(df_vienna_stat)
-
-
 ```
 This graph represents the simple linear regression between the price of hotels in Vienna and the number of price.
 

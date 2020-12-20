@@ -27,7 +27,7 @@ library(texreg)
 library(estimatr)
 
 # First, I will import ly clean data from github
-my_url <- "https://raw.githubusercontent.com/Maeva2408/DA2_Extra_exercices/main/data/clean/hotel_Brussels.csv"
+my_url <- "https://raw.githubusercontent.com/Maeva2408/DA2_Extra_exercices/main/Exercice_3_chap7/data/clean/hotel_Brussels.csv"
 brussels <- read_csv( my_url )
 
 ######
