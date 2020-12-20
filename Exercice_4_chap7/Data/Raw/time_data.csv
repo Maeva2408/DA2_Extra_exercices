@@ -1,0 +1,265 @@
+iso2c,country,IC.REG.DURS,year
+1A,Arab World,19.6545454545455,2019
+S3,Caribbean small states,19.6538461538462,2019
+B8,Central Europe and the Baltics,15.9090909090909,2019
+V2,Early-demographic dividend,30.8311475409836,2019
+Z4,East Asia & Pacific,22.851724137931,2019
+4E,East Asia & Pacific (excluding high income),29.73,2019
+T4,East Asia & Pacific (IDA & IBRD countries),29.647619047619,2019
+XC,Euro area,9.81578947368421,2019
+Z7,Europe & Central Asia,11.762,2019
+7E,Europe & Central Asia (excluding high income),11.3473684210526,2019
+T7,Europe & Central Asia (IDA & IBRD countries),13.2772727272727,2019
+EU,European Union,12.1666666666667,2019
+F1,Fragile and conflict affected situations,34.6105263157895,2019
+XE,Heavily indebted poor countries (HIPC),22.5384615384615,2019
+XD,High income,10.9295081967213,2019
+XF,IBRD only,23.4367647058824,2019
+ZT,IDA & IBRD total,22.9673758865248,2019
+XH,IDA blend,19.18,2019
+XI,IDA only,23.3965517241379,2019
+XG,IDA total,22.5301369863014,2019
+V3,Late-demographic dividend,11.26875,2019
+ZJ,Latin America & Caribbean,28.0909090909091,2019
+XJ,Latin America & Caribbean (excluding high income),34.5625,2019
+T2,Latin America & the Caribbean (IDA & IBRD countries),29.8,2019
+XL,Least developed countries: UN classification,26.2173913043478,2019
+XO,Low & middle income,23.6646153846154,2019
+XM,Low income,24.2142857142857,2019
+XN,Lower middle income,22.154,2019
+ZQ,Middle East & North Africa,19.5190476190476,2019
+XQ,Middle East & North Africa (excluding high income),24.8846153846154,2019
+T3,Middle East & North Africa (IDA & IBRD countries),23.3333333333333,2019
+XP,Middle income,23.5137254901961,2019
+XU,North America,2.85,2019
+XY,Not classified,NA,2019
+OE,OECD members,9.11351351351351,2019
+S4,Other small states,15.5769230769231,2019
+S2,Pacific island small states,20.4444444444444,2019
+V4,Post-demographic dividend,11.1888888888889,2019
+V1,Pre-demographic dividend,20.6540540540541,2019
+S1,Small states,17.59375,2019
+8S,South Asia,14.5625,2019
+T5,South Asia (IDA & IBRD),14.5625,2019
+ZG,Sub-Saharan Africa,21.525,2019
+ZF,Sub-Saharan Africa (excluding high income),21.6673913043478,2019
+T6,Sub-Saharan Africa (IDA & IBRD countries),21.525,2019
+XT,Upper middle income,24.8211538461538,2019
+1W,World,19.5973821989529,2019
+AF,Afghanistan,8.5,2019
+AL,Albania,4.5,2019
+DZ,Algeria,18,2019
+AS,American Samoa,NA,2019
+AD,Andorra,NA,2019
+AO,Angola,36,2019
+AG,Antigua and Barbuda,19,2019
+AR,Argentina,11.5,2019
+AM,Armenia,4,2019
+AW,Aruba,NA,2019
+AU,Australia,2,2019
+AT,Austria,21,2019
+AZ,Azerbaijan,3.5,2019
+BS,"Bahamas, The",11.5,2019
+BH,Bahrain,8.3,2019
+BD,Bangladesh,19.5,2019
+BB,Barbados,16,2019
+BY,Belarus,8.5,2019
+BE,Belgium,5,2019
+BZ,Belize,48,2019
+BJ,Benin,8.5,2019
+BM,Bermuda,NA,2019
+BT,Bhutan,12,2019
+BO,Bolivia,39.5,2019
+BA,Bosnia and Herzegovina,80,2019
+BW,Botswana,48,2019
+BR,Brazil,16.6,2019
+VG,British Virgin Islands,NA,2019
+BN,Brunei Darussalam,5.5,2019
+BG,Bulgaria,23,2019
+BF,Burkina Faso,13,2019
+BI,Burundi,5,2019
+CV,Cabo Verde,9,2019
+KH,Cambodia,99,2019
+CM,Cameroon,13.5,2019
+CA,Canada,1.5,2019
+KY,Cayman Islands,NA,2019
+CF,Central African Republic,22,2019
+TD,Chad,58,2019
+JG,Channel Islands,NA,2019
+CL,Chile,4,2019
+CN,China,8.5,2019
+CO,Colombia,10,2019
+KM,Comoros,16,2019
+CD,"Congo, Dem. Rep.",7,2019
+CG,"Congo, Rep.",49.5,2019
+CR,Costa Rica,23,2019
+CI,Cote d'Ivoire,6,2019
+HR,Croatia,19.5,2019
+CU,Cuba,NA,2019
+CW,Curacao,NA,2019
+CY,Cyprus,6,2019
+CZ,Czech Republic,24.5,2019
+DK,Denmark,3.5,2019
+DJ,Djibouti,14,2019
+DM,Dominica,12,2019
+DO,Dominican Republic,16.5,2019
+EC,Ecuador,48.5,2019
+EG,"Egypt, Arab Rep.",12.5,2019
+SV,El Salvador,16.5,2019
+GQ,Equatorial Guinea,33,2019
+ER,Eritrea,84,2019
+EE,Estonia,3.5,2019
+SZ,Eswatini,21.5,2019
+ET,Ethiopia,32,2019
+FO,Faroe Islands,NA,2019
+FJ,Fiji,40,2019
+FI,Finland,13,2019
+FR,France,4,2019
+PF,French Polynesia,NA,2019
+GA,Gabon,10,2019
+GM,"Gambia, The",8,2019
+GE,Georgia,1,2019
+DE,Germany,8,2019
+GH,Ghana,13,2019
+GI,Gibraltar,NA,2019
+GR,Greece,4,2019
+GL,Greenland,NA,2019
+GD,Grenada,12,2019
+GU,Guam,NA,2019
+GT,Guatemala,15,2019
+GN,Guinea,15,2019
+GW,Guinea-Bissau,8.5,2019
+GY,Guyana,18,2019
+HT,Haiti,97,2019
+HN,Honduras,42,2019
+HK,"Hong Kong SAR, China",1.5,2019
+HU,Hungary,7,2019
+IS,Iceland,11.5,2019
+IN,India,17.5,2019
+ID,Indonesia,12.6,2019
+IR,"Iran, Islamic Rep.",72.5,2019
+IQ,Iraq,26.5,2019
+IE,Ireland,11,2019
+IM,Isle of Man,NA,2019
+IL,Israel,11,2019
+IT,Italy,11,2019
+JM,Jamaica,3,2019
+JP,Japan,11.1,2019
+JO,Jordan,12.5,2019
+KZ,Kazakhstan,5,2019
+KE,Kenya,23,2019
+KI,Kiribati,31,2019
+KP,"Korea, Dem. Peopleâ€™s Rep.",NA,2019
+KR,"Korea, Rep.",8,2019
+XK,Kosovo,4.5,2019
+KW,Kuwait,19.4,2019
+KG,Kyrgyz Republic,10,2019
+LA,Lao PDR,173,2019
+LV,Latvia,5.5,2019
+LB,Lebanon,15,2019
+LS,Lesotho,15,2019
+LR,Liberia,18,2019
+LY,Libya,35,2019
+LI,Liechtenstein,46,2019
+LT,Lithuania,5.5,2019
+LU,Luxembourg,16.5,2019
+MO,"Macao SAR, China",NA,2019
+MG,Madagascar,8,2019
+MW,Malawi,37,2019
+MY,Malaysia,17.5,2019
+MV,Maldives,12,2019
+ML,Mali,11,2019
+MT,Malta,20.5,2019
+MH,Marshall Islands,17,2019
+MR,Mauritania,6,2019
+MU,Mauritius,4.5,2019
+MX,Mexico,8.4,2019
+FM,"Micronesia, Fed. Sts.",16,2019
+MD,Moldova,4,2019
+MC,Monaco,NA,2019
+MN,Mongolia,12,2019
+ME,Montenegro,12,2019
+MA,Morocco,9,2019
+MZ,Mozambique,17,2019
+MM,Myanmar,7,2019
+"NA",Namibia,54,2019
+NR,Nauru,NA,2019
+NP,Nepal,22.5,2019
+NL,Netherlands,3.5,2019
+NC,New Caledonia,NA,2019
+NZ,New Zealand,0.5,2019
+NI,Nicaragua,14,2019
+NE,Niger,10,2019
+NG,Nigeria,7.2,2019
+MK,North Macedonia,15,2019
+MP,Northern Mariana Islands,NA,2019
+NO,Norway,4,2019
+OM,Oman,4.3,2019
+PK,Pakistan,16.5,2019
+PW,Palau,28,2019
+PA,Panama,6,2019
+PG,Papua New Guinea,41,2019
+PY,Paraguay,35,2019
+PE,Peru,26,2019
+PH,Philippines,33,2019
+PL,Poland,37,2019
+PT,Portugal,6.5,2019
+PR,Puerto Rico,5.5,2019
+QA,Qatar,8.7,2019
+RO,Romania,20,2019
+RU,Russian Federation,10.1,2019
+RW,Rwanda,4,2019
+WS,Samoa,9,2019
+SM,San Marino,11.5,2019
+ST,Sao Tome and Principe,7,2019
+SA,Saudi Arabia,10.4,2019
+SN,Senegal,6,2019
+RS,Serbia,7,2019
+SC,Seychelles,32,2019
+SL,Sierra Leone,8,2019
+SG,Singapore,1.5,2019
+SX,Sint Maarten (Dutch part),NA,2019
+SK,Slovak Republic,21.5,2019
+SI,Slovenia,8,2019
+SB,Solomon Islands,9,2019
+SO,Somalia,70,2019
+ZA,South Africa,40,2019
+SS,South Sudan,13,2019
+ES,Spain,12.5,2019
+LK,Sri Lanka,8,2019
+KN,St. Kitts and Nevis,18.5,2019
+LC,St. Lucia,11,2019
+MF,St. Martin (French part),NA,2019
+VC,St. Vincent and the Grenadines,10,2019
+SD,Sudan,34.5,2019
+SR,Suriname,66,2019
+SE,Sweden,7.5,2019
+CH,Switzerland,10,2019
+SY,Syrian Arab Republic,15.5,2019
+TJ,Tajikistan,7,2019
+TZ,Tanzania,29.5,2019
+TH,Thailand,6,2019
+TL,Timor-Leste,13,2019
+TG,Togo,2.5,2019
+TO,Tonga,16,2019
+TT,Trinidad and Tobago,10.5,2019
+TN,Tunisia,9,2019
+TR,Turkey,7,2019
+TM,Turkmenistan,NA,2019
+TC,Turks and Caicos Islands,NA,2019
+TV,Tuvalu,NA,2019
+UG,Uganda,24,2019
+UA,Ukraine,6.5,2019
+AE,United Arab Emirates,3.8,2019
+GB,United Kingdom,4.5,2019
+US,United States,4.2,2019
+UY,Uruguay,6.5,2019
+UZ,Uzbekistan,3,2019
+VU,Vanuatu,18,2019
+VE,"Venezuela, RB",230,2019
+VN,Vietnam,16,2019
+VI,Virgin Islands (U.S.),NA,2019
+PS,West Bank and Gaza,43.5,2019
+YE,"Yemen, Rep.",40.5,2019
+ZM,Zambia,8.5,2019
+ZW,Zimbabwe,27,2019
